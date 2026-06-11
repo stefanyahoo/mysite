@@ -3,6 +3,8 @@
 
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -6011,6 +6013,20 @@ function toggleExpandMap() {
 }
 
 function showPage(id) {
+  if (window.self === window.top) {
+    var pathName = window.location.pathname.split('/').pop() || '';
+    var currentPageId = 'home';
+    if (pathName.includes('about')) currentPageId = 'about';
+    else if (pathName.includes('treatment')) currentPageId = 'treatment';
+    else if (pathName.includes('testimonials')) currentPageId = 'testimonials';
+    else if (pathName.includes('contact')) currentPageId = 'contact';
+    
+    if (id !== currentPageId) {
+      var basePath = window.location.protocol === 'file:' ? './' : '/mysite/';
+      window.location.href = basePath + (id === 'home' ? 'index.html' : id + '.html');
+      return;
+    }
+  }
   if (window.self === window.top) {
     var pathName = window.location.pathname.split('/').pop() || '';
     var currentPageId = 'home';
