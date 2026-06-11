@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -6022,6 +6024,19 @@ function showPage(id) {
       return;
     }
   }
+  if (window.self === window.top) {
+    var pathName = window.location.pathname.split('/').pop() || '';
+    var currentPageId = 'home';
+    if (pathName.includes('about')) currentPageId = 'about';
+    else if (pathName.includes('treatment')) currentPageId = 'treatment';
+    else if (pathName.includes('testimonials')) currentPageId = 'testimonials';
+    else if (pathName.includes('contact')) currentPageId = 'contact';
+    
+    if (id !== currentPageId) {
+      window.location.href = (id === 'home' ? 'index.html' : id + '.html');
+      return;
+    }
+  }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + id);
   if (target) target.classList.add('active');
@@ -7026,7 +7041,13 @@ setTimeout(bootHeroEffects, 100);
 /* ═══════════════════════════════════════════════════
    12. BOOT
 ═══════════════════════════════════════════════════ */
-showPage('home');
+var pathName = window.location.pathname.split('/').pop() || '';
+var bootPage = 'home';
+if (pathName.includes('about')) bootPage = 'about';
+else if (pathName.includes('treatment')) bootPage = 'treatment';
+else if (pathName.includes('testimonials')) bootPage = 'testimonials';
+else if (pathName.includes('contact')) bootPage = 'contact';
+showPage(bootPage);
 </script>
 <!-- ── WhatsApp Floating Widget ── -->
 <a aria-label="Chat on WhatsApp" href="https://wa.me/447491620720" id="whatsapp-fab" onmouseenter="this.style.transform='scale(1.12) translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(37,211,102,0.55),0 4px 12px rgba(0,0,0,0.22)';" onmouseleave="this.style.transform='scale(1) translateY(0)';this.style.boxShadow='0 6px 24px rgba(37,211,102,0.45),0 2px 8px rgba(0,0,0,0.18)';" rel="noopener noreferrer" style="position: fixed; bottom: 28px; right: 28px; z-index: 99999; width: 58px; height: 58px; border-radius: 50%; background: rgb(37, 211, 102); display: flex; align-items: center; justify-content: center; box-shadow: rgba(37, 211, 102, 0.45) 0px 6px 24px, rgba(0, 0, 0, 0.18) 0px 2px 8px; transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s; text-decoration: none; transform: scale(1) translateY(0px);" target="_blank">
