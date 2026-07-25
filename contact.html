@@ -4574,6 +4574,19 @@ nav#main-nav {
     </div>
   </div>
 
+  <!-- ═══════════ LIVE REVIEWS WIDGET (RevU · auto-updating) ═══════════ -->
+  <div class="live-reviews" data-live-reviews="1" style="background:var(--cream);padding:clamp(3.5rem,7vw,6rem) 1.5rem;">
+    <div style="max-width:1080px;margin:0 auto;display:flex;flex-direction:column;align-items:center;">
+      <span class="eyebrow underline-draw is-visible" style="text-align:center;display:block;">Verified Patient Reviews</span>
+      <h2 class="heading" style="text-align:center;">Our Live <em>5-Star</em> Feed</h2>
+      <div class="divider" style="margin:1.3rem auto 2.6rem;"></div>
+      <div style="width:100%;max-width:900px;">
+        <!-- RevU Banner widget: live reviews, auto-updating. Injected review DOM is reset to this bare embed on CMS Publish (see editor cleanup rule) so nothing gets baked in or duplicated. -->
+        <div data-bid="172989" data-url="https://app.revu.cloud" data-aid="31149"><script src="https://widget.reviewability.com/js/widgetAdv.min.js" async></script></div><script class="json-ld-content" type="application/ld+json"></script>
+      </div>
+    </div>
+  </div>
+
   <!-- PROCESS -->
   <div class="process">
     <div style="text-align:center;">
